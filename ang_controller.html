@@ -1,0 +1,37 @@
+<!--
+This code creates an AngularJS application with a controller called "myCtrl." The controller 
+initializes two scope variables, "firstName" and "lastName," with the values "John" and "Doe,"
+respectively. The HTML contains two input fields, one for the first name and one for the last name,
+which are bound to the corresponding scope variables using the ng-model directive. The full name
+is displayed as a concatenation of the first name and last name scope variables. To change the 
+names, you can simply change the value of the $scope.firstName and $scope.lastName variables in
+the controller.
+-->
+
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<p>Try to change the names.</p>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+
+First Name: <input type="text" ng-model="firstName"><br>
+Last Name: <input type="text" ng-model="lastName"><br>
+
+<br>
+Full Name: {{firstName + " " + lastName}}
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstName= "Jack";
+    $scope.lastName= "Doe";
+});
+</script>
+
+</body>
+</html>

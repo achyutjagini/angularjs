@@ -1,3 +1,10 @@
+<!--
+The ng-app directive tells AngularJS that the <div> element is the "owner"
+of an AngularJS application.
+The ng-model directive binds the value of the input field to the application variable name.
+The ng-bind directive binds the content of the <p> element to the application variable name.
+-->
+
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
@@ -5,7 +12,10 @@
 
 <div ng-app="">
   <p>Name: <input type="text" ng-model="name"></p>
-  <p ng-bind="name"></p>
+
+  <p ng-bind="name"></p><!--this line can also be <p>{{name}}</p>-->
+  <p>{{name}}</p>
+  
 </div>
 
 </body>

@@ -1,0 +1,21 @@
+
+The line of code "var app = angular.module('myApp', []);" creates a new AngularJS
+
+module with the name "myApp." The empty array passed as the second argument is used to define 
+the module's dependencies. In this case, since the array is empty, the module has no dependencies
+on any other modules.
+The "app" variable is assigned to the new module, which can be used to
+configure and run the module in the rest of the code.
+
+
+The code "app.controller('myCtrl', function($scope) {" creates a new controller called "myCtrl" 
+and attaches it to the "myApp" module created previously. The function passed as the 
+second argument
+is a constructor function for the controller, and it is executed whenever AngularJS creates an 
+instance of the controller.
+
+Inside the function, the $scope variable is defined and assigned values to properties firstName 
+and lastName as Jack and Doe respectively.
+So now when the page loads, the default value of firstName is Jack and lastName is Doe, which 
+will be displayed in the input field and also when we change the value of input field it will 
+update the name.

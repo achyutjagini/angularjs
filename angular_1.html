@@ -1,7 +1,46 @@
+<!--
+This is an HTML file that uses AngularJS, a JavaScript framework for
+building web applications. 
+The script tag at the top of the file imports the AngularJS library from the Google Hosted
+Libraries.
 
+The "ng-app" attribute on the div element indicates that this is the root element of 
+the AngularJS application.
+
+The "ng-model" directive on the input element creates a two-way data binding between the input 
+field and the "name" property of the scope object. The h1 element uses double curly braces to 
+display the value of the "name" property. When the user types into the input field, the text
+they enter will be displayed in the h1 element in real time.
+
+The ng-model directive in AngularJS is used to create a two-way data binding between an HTML element
+and a property on the scope object.
+When the value of the HTML element changes, the corresponding property on the scope object is 
+updated, and vice versa. This allows the data in the scope to be updated automatically as the
+user interacts with the HTML element.
+
+For example, the following code creates a simple text input field and binds it to the "name" 
+property of the scope object using the ng-model directive:
+
+<input type="text" ng-model="name">
+When the user types into the input field, the value of the "name" property on the scope object
+will be updated with the text they entered. You can also use the value of the "name" property\
+in your HTML to display it, like:
+
+Copy code
+<h1>Hello {{name}}</h1>
+The ng-model directive can also be used with other HTML elements, such as textarea, select,
+and checkbox. It can also be used with custom form controls, such as custom input fields, by
+ creating a custom directive that implements the ngModelController.
+
+In summary, the ng-model directive is a powerful feature of AngularJS that allows you to 
+easily create dynamic and interactive forms by linking HTML elements to properties on the
+scope object.
+-->
 <!DOCTYPE html>
 <html lang="en-US">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">  
+</script>
+
 <body>
 
 <div ng-app="">
