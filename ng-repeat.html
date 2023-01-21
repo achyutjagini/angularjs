@@ -1,0 +1,36 @@
+<!--This is an example of an AngularJS application that uses the "ng-repeat" 
+directive to loop through an array of data.
+
+The "ng-app" attribute is set to an empty string, indicating that this element 
+is the root element of the AngularJS application.
+
+The "ng-init" directive is used to initialize a variable "names" with an array 
+of values ['Jani','Hege','Kai'].
+
+The "ng-repeat" directive is used to loop through the elements of the "names" array 
+and create a new <li> element for each one. The "ng-repeat" directive takes an expression 
+that defines the loop, in this case "x in names". The "x" variable is a placeholder for 
+the current element of the array, and "names" is the array that is being looped through.
+
+The double curly brace notation {{}} is used to bind expressions to the view, in this
+case the expression {{ x }} will be evaluated and the result will be displayed in the view.
+
+The result of this code will be an unordered list with three list items, one for each
+element in the names array, containing the value of each element.
+-->
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="" ng-init="names=['Jani','Hege','Kai']">
+  <p>Looping with ng-repeat:</p>
+<!--ul is for unordered list-->
+  <ul>
+  <li ng-repeat="x in names">
+      {{ x }}
+  </li>
+  </ul>
+</div>
+</body>
+</html>

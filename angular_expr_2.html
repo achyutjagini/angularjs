@@ -3,10 +3,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
 
+<!--
+The ng-init directive is used to initialize variables in AngularJS. It allows you to set the 
+initial values of variables in the scope of the current element. The ng-init directive is typically 
+used to set default values for a controller or to perform simple calculations.
+-->
+
 <p>Change the value of the input field:</p>
 
 <div ng-app="" ng-init="myCol='lightblue'">
 
+<!--inline styling-->
 <input style="background-color:{{myCol}}" ng-model="myCol">
 
 </div>

@@ -1,0 +1,14 @@
+The ng-init directive is used to initialize variables in AngularJS. It allows you to set the
+ initial values of variables in the scope of the current element. The ng-init directive is typically used to set default values for a controller or to perform simple calculations.
+
+For example:
+
+<div ng-app="myApp" ng-init="firstName='John';lastName='Doe'">
+  First Name: <input type="text" ng-model="firstName"><br>
+  Last Name: <input type="text" ng-model="lastName"><br>
+  <br>
+  Full Name: {{firstName + " " + lastName}}
+</div>
+This code initializes two variables, "firstName" and "lastName," with the values "John" and "Doe" respectively, when the app runs. The input fields will display the initial values and will update when the user changes the input fields.
+
+ng-init is useful for when you don't want to use a controller or when you need to set initial values for a small number of variables. However, if you have a lot of variables or if you need to perform more complex logic, it's better to use a controller instead.

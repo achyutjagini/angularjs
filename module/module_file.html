@@ -1,0 +1,38 @@
+<!--
+myApp.js contains application module definition
+myCtrl.js contains controller
+
+This is an example of an AngularJS application. AngularJS is a JavaScript framework that allows 
+developers to create dynamic web applications. The code includes a reference to the AngularJS 
+library from a CDN (Content Delivery Network) and two JavaScript files, "myApp.js" and "myCtrl.js".
+
+The "myApp" and "myCtrl" in the "ng-app" and "ng-controller" attributes respectively, are the names
+of the AngularJS app and controller defined in the JavaScript files. The double curly brace notation
+
+{{}} is used to bind expressions to the view, in this case the expressions firstName + " " + lastName
+will be evaluated and the result will be displayed in the view.\
+
+This code snippet is a part of an AngularJS application. It defines an HTML element with the "ng-app"
+attribute set to "myApp". The "ng-app" attribute is used to define an AngularJS application. It tells
+AngularJS that the element and its children are part of an AngularJS application and should be treated
+as such. In this case, "myApp" is the name of the AngularJS application that is defined in a separate 
+JavaScript file. The application will then use this element as the root element 
+and will initialize the application and start the compilation process.
+-->
+
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+</script>
+
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+{{ firstName + " " + lastName }}
+</div>
+
+<script src="myApp.js"></script>
+<script src="myCtrl.js"></script>
+
+</body>
+</html>

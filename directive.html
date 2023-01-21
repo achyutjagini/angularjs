@@ -1,0 +1,37 @@
+<!--
+This code creates an AngularJS application with a directive called "w3TestDirective."
+
+The directive is attached to the "myApp" module which is created using the "angular.module" function.
+
+The directive is used to attach a template to the DOM element that has the directive's name
+as an attribute. In this case, the directive is attached to the <div> element using the 
+attribute "w3-test-directive".
+
+The directive is defined using the "app.directive" method, which takes two arguments: the name 
+of the directive (w3TestDirective), and a factory function that returns an object.
+
+In the factory function we have template property with a string value "I was made in a directive
+constructor!" which will be added to the DOM where the directive is used.
+
+So when the page is loaded, the string "I was made in a directive constructor!" will be 
+displayed on the page, as it was added to the DOM via the directive.
+-->
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+</script>
+
+<body>
+<!-- the directive is attached to the <div> element using the attribute "w3-test-directive"-->
+<div ng-app="myApp" w3-test-directive></div>
+
+<script>
+var app = angular.module("myApp", []);
+app.directive("w3TestDirective", function() {
+    return {
+        template : "I was made in a directive constructor!"
+    };
+});
+</script>
+</body>
+</html>
