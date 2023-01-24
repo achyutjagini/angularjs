@@ -1,0 +1,48 @@
+<!--
+  This is an AngularJS code snippet that creates an HTML page with an AngularJS application named "myApp" 
+  and a controller named "namesCtrl". The controller has a scope variable "names" which is an array of 
+  strings containing a list of names.
+
+The view of the page has an input field with a ng-model directive which is bound to the "test" variable
+and a unordered list that uses the ng-repeat directive to iterate over the "names" array, and display 
+each name in a list item. The filter:test is used to filter the names that matches the input value of "test".
+When a user types a letter in the input field, the ng-model directive updates the "test" variable, which in
+turn updates the filter. The filter then filters the "names" array and only displays the names that match
+the letter typed by the user.
+
+It also includes a <p> tag which is providing information that the list will only consist of names matching
+the filter.This allows the user to easily search through the list of names and find the ones they're looking for.
+-->
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="namesCtrl">
+<p>Type a letter in the input field:</p>
+<p><input type="text" ng-model="test"></p>
+<ul>
+  <li ng-repeat="x in names | filter:test">
+    {{ x }}
+  </li>
+</ul>
+</div>
+
+<script>
+angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.names = [
+        'Jani',
+        'Carl',
+        'Margareth',
+        'Hege',
+        'Joe',
+        'Gustav',
+        'Birgit',
+        'Mary',
+        'Kai'
+    ];
+});
+</script>
+<p>The list will only consists of names matching the filter.</p>
+</body>
+</html>

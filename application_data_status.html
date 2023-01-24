@@ -1,9 +1,55 @@
+<!--This is an example of an AngularJS application that uses the "ng-model", "ng-init" and "required" 
+attribute to create a simple email validation form and also 
+display the status of the input field.
+
+The "ng-app" attribute is set to an empty string, indicating that this element is the root element 
+of the AngularJS application.
+
+The "form" element has a "name" attribute set to "myForm" and also an "ng-init" directive which 
+is used to initialize the variable "myText" with a default email address 'post@myweb.com'.
+
+The "input" element has a "type" attribute set to "email" which will be used to check if the input'
+value is a valid email address. It also has a "name" attribute set to "myAddress" and an "ng-model"
+directive set to "myText". The "ng-model" directive binds the input value to a variable "myText" in
+the scope. It also has a "required" attribute which makes the input field mandatory and forces the
+validation to check if the input field is empty or not.
+
+The "p" elements inside the form has expressions which are {{myForm.myAddress.$valid}}, 
+{{myForm.myAddress.$dirty}} and {{myForm.myAddress.$touched}}. These expressions are used to display 
+the status of the input field whether it is valid, dirty or touched.
+
+The "$valid" property is provided by AngularJS and it returns true if the input value is valid 
+according to the validation rules such as required and email validation.
+The "$dirty" property is provided by AngularJS and it returns true if the
+input value has been changed.
+The "$touched" property is provided by AngularJS and it returns true if the input
+field has been in focus.
+
+The result of this code will be an input field with a default email address where the user
+can edit the address, and try to change the status. And below the input field, it will show 
+whether the input field is valid, dirty, or touched.
+
+This is an AngularJS code snippet that initializes an AngularJS application, creates a form named "myForm",
+sets a default value for the "myText" variable to "post@myweb.com", and creates an email input field within 
+the form that is bound to the "myText" variable and is marked as required.
+The ng-app directive is used to define an AngularJS application, the ng-init directive is used to initialize
+the application's data, and the ng-model directive is used to bind the input field's
+value to the "myText" variable.
+
+ng-init used to initialize variables
+
+When a field is said to be "in focus," it means that the field is currently selected and ready for input.
+This generally occurs when a user clicks on the field with a mouse or uses the tab key to navigate to the field.
+The field will typically have a highlighted border or background to indicate that it is active and ready for input.
+ In AngularJS, the "$touched" property of a form field is used to track whether the field has been in focus or not.
+-->
+
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
 
-<form ng-app="" name="myForm" ng-init="myText = 'post@myweb.com'">
+<form ng-app="" name="myForm" ng-init="myText ='post@myweb.com'">
 
 Email:
 <input type="email" name="myAddress" ng-model="myText" required>

@@ -1,0 +1,35 @@
+<!--
+This is an AngularJS code snippet which uses AngularJS library (v1.6.9) and it creates an HTML 
+form with a single input field that is bound to the "myText" variable using the ng-model directive.
+The input field is marked as "required" using the "required" attribute.
+
+It also includes a stylesheet that applies a background color of "lightblue" to the input field when 
+it is in an "invalid" state. The "ng-invalid" class is a built-in AngularJS class that is applied to
+form fields that are not valid.
+
+In this case, when the input field is empty, it is considered "invalid" because it is required, and the
+"ng-invalid" class will be applied to the field, causing its background color to change to light blue.
+Also, it includes a <p> tag which is providing information that when the text field is edited it will 
+get or lose classes according to the status.
+-->
+
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<style>
+input.ng-invalid {
+    background-color: lightblue;
+}
+</style>
+<body>
+
+<form ng-app="" name="myForm" ng-init="myText ='abcd'">
+    Enter your name:
+    <input name="myName" ng-model="myText" required>
+</form>
+
+<p>Edit the text field and it will get/lose classes according to the status.</p>
+<p><b>Note:</b> A text field with the "required" attribute is not valid when it is empty.</p>
+
+</body>
+</html>

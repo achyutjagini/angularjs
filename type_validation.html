@@ -2,8 +2,10 @@
 directive to create a simple email validation form.
 The "ng-app" attribute is set to an empty string, indicating that this element is the root element 
 of the AngularJS application.
+
 The "form" element has a "name" attribute set to "myForm" which will be used to reference the form
 in AngularJS.
+
 The "input" element has a "type" attribute set to "email" which will be used to check if the input
 value is a valid email address. It also has a "name" attribute set to "myAddress" and an "ng-model" 
 directive set to "text". The "ng-model" directive binds the input value to a variable "text"
@@ -11,6 +13,7 @@ in the scope.
 The "span" element has an "ng-show" directive set to "myForm.myAddress.$error.email". This directive
 is used to show or hide the element based on the expression. In this case, it will show the 
 element if the value of "myForm.myAddress.$error.email" is true.
+
 The "$error" object is provided by AngularJS and it contains information about validation errors
 ' for the input element. The "email" property is true if the input value is not a valid
 email address.
@@ -24,9 +27,12 @@ the input value is not valid an error message will appear.-->
 <body>
 
 <form ng-app="" name="myForm">
-    Email:
-    <input type="email" name="myAddress" ng-model="text">
-    <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
+<!--name attribute of form used to reference form in angularjs-->
+
+Email:<input type="email" name="myAddress" ng-model="text">
+
+<span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
+
 </form>
 
 <p>Enter your e-mail address in the input field. AngularJS will display an errormessage 
