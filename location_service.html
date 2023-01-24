@@ -1,0 +1,40 @@
+<!--
+In AngularJS, a service is a function, or object, that is available for, and limited to,
+your AngularJS application.
+AngularJS has about 30 built-in services. One of them is the $location service.
+The $location service has methods which return information about the location of the current web page:
+
+Note that the $location service is passed in to the controller as an argument. In order to use the service
+in the controller, it must be defined as a dependency.
+
+Why use Services?
+For many services, like the $location service, it seems like you could use objects that are already 
+in the DOM, like the window.location object, and you could, but it would have some limitations, at
+least for your AngularJS application.
+
+AngularJS constantly supervises your application, and for it to handle changes and events properly,
+AngularJS prefers that you use the $location service instead of the window.location object.
+-->
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>The url of this page is:</p>
+<h3>{{myUrl}}</h3>
+</div>
+
+<p>This example uses the built-in $location service to get the absolute url of the page.</p>
+
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope, $location) {
+    $scope.myUrl = $location.absUrl();
+});
+
+</script>
+
+</body>
+</html>

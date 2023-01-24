@@ -1,0 +1,55 @@
+Yes, AngularJS application can connect to a Flask server and retrieve JSON data. In order to do this,
+ you will need to make an HTTP GET request to the endpoint of your Flask server that is responsible for
+  providing the JSON data.
+
+For example, you can use AngularJS's $http service in your controller to make an HTTP GET request to the
+ endpoint, like this:
+
+Copy code
+$http.get("http://your-flask-server-url/api/data").then(function (response) {
+    $scope.myData = response.data;
+});
+
+You need to make sure that the Flask server is running and providing the JSON data at the specified endpoint,
+ and that the AngularJS application has the correct URL to reach the Flask server.
+Also, you may need to configure the server to allow cross-origin resource sharing (CORS) if your AngularJS 
+application and Flask server are running on different domains.
+
+It's important to note that this is just a basic example, in a real-world scenario, you may need to handle
+ errors, add security measures, and handle different types of data and formats.
+
+
+
+how to make the flask server to provide the json data
+In order to make a Flask server provide JSON data, you will need to create an endpoint in your Flask application that returns the JSON data.
+
+Here is an example of a Flask endpoint that returns JSON data:
+
+Copy code
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route("/api/data", methods=["GET"])
+def get_data():
+    data = {
+        "name": "John Smith",
+        "age": 35,
+        "address": "123 Main St, Anytown USA"
+    }
+    return jsonify(data)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+In this example, the endpoint is created using the @app.route decorator, which maps a URL 
+path to a function. The /api/data path is mapped to the get_data function, which is responsible 
+for returning the JSON data. The jsonify function is used to convert the dictionary to a JSON object,
+ and it's returned as the response.
+
+You can also use flask-restful library to provide json data and it's also more powerful and flexible.
+
+Once the endpoint is created and the server is running, you can make an HTTP GET request to the
+ endpoint from your AngularJS application, and it will receive the JSON data in response.
+
+You can also use a database to store data and fetch it from there, you can use a ORM library 
+like SQLAlchemy to connect to your database and fetch data.

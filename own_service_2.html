@@ -1,0 +1,48 @@
+<!--This script defines an AngularJS filter called 'myFormat' that is dependent on the service 'hexafy' 
+which has a function 'myFunc' which converts a given number into a hexadecimal number. The filter 
+takes a number as input and returns the hexadecimal representation of that number by calling the 
+'hexafy.myFunc(x)' . The filter can be used in the HTML template with the "pipe" character, for 
+example: {{255| myFormat}} will output 'FF'
+This way, the filter can be used to format any number as hexadecimal throughout the application,
+by injecting the filter into the templates that need it, making it more reusable and maintainable.
+It's important to notice that the filter is defined within the myApp module, but it's not being 
+used by any controller or directive.
+
+The square brackets [] are used to define the dependencies for the filter. In this case, the filter 'myFormat'
+ has a dependency on the service 'hexafy'. The square brackets are used to define the dependencies that need to
+  be injected into the filter, and the list of dependencies are passed as strings, so that AngularJS can identify
+   and resolve them. The function that is passed as the second argument to the filter, takes the resolved 
+   dependencies as its arguments. In this case, the filter is dependent on the service 'hexafy', and it's 
+   passed as an argument to the function. So, the filter can use the 'hexafy' service to convert the 
+   given number into a hexadecimal string.
+-->
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp">
+Convert the number 255, using a custom made service inside a custom made filter:
+
+<h1>{{255 | myFormat}}</h1>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.service('hexafy', function() {
+    this.myFunc = function (x) {
+        return x.toString(16);
+    }
+});
+
+app.filter('myFormat',['hexafy', function(abcd) {
+    return function(x) {
+        return abcd.myFunc(x);
+    };
+}]);
+
+</script>
+
+</body>
+</html>
