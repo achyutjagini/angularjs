@@ -1,0 +1,45 @@
+<!--td standard cell in a table
+css box model - box around every html element
+The border-collapse property sets whether table borders should collapse into a single border or be separated as in standard HTML.
+-->
+<!DOCTYPE html>
+<html>
+    <style>
+        table, th , td  {
+          border: 5px solid grey;
+     /*     border-collapse: collapse;*/
+            border-collapse: separate; 
+
+          padding: 5px;
+        }
+        table tr:nth-child(odd) {
+          background-color: #f1f1f1;
+        }
+        table tr:nth-child(even) {
+          background-color: #ffffff;
+        }
+        </style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+
+<table>
+  <tr ng-repeat="x in names|orderBy : 'applicant'">
+    <td>{{ x.applicant }}</td>
+    <td>{{ x.address }}</td>
+  </tr>
+</table>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("http://localhost:5000/api/data")
+    .then(function (response) {$scope.names = response.data;});
+});
+</script>
+
+</body>
+</html>

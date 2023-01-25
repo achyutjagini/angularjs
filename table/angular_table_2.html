@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<style>
+table, td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="customersCtrl"> 
+
+<table>
+  <tr ng-repeat="x in names">
+    <td>{{ $index + 1 }}</td>
+    <td ng-if="$odd" style="background-color:#f2f1f2">
+    {{ x.applicant }}</td>
+    <td ng-if="$even">
+    {{ x.address }}</td>
+    <td ng-if="$odd" style="background-color:#f1f1f1">
+    {{ x.applicant }}</td>
+    <td ng-if="$even">
+    {{ x.address }}</td>
+</tr>
+</table>
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("http://localhost:5000/api/data")
+    .then( function (response) {$scope.names = response.data;} );
+});
+</script>
+
+</body>
+</html>

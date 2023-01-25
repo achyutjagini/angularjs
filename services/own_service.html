@@ -1,0 +1,41 @@
+<!--
+This script defines an AngularJS application called 'myApp', and creates a service called 'hexafy' that
+has a function 'myFunc'
+which takes a number as input and converts it to a hexadecimal string.
+
+The controller 'myCtrl' is then
+defined and it has a dependency on the 'hexafy' service. In the controller, a scope variable 'hex' 
+is set to the result of calling 'hexafy.myFunc(255)' which is the hexadecimal representation of the
+decimal number 255 (which is FF).
+This service can be used to convert any number to hexadecimal, it can be reused in other parts of
+the application by injecting the service into the controllers that need it.
+-->
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+
+<p>The hexadecimal value of 255 is:</p>
+
+<h1>{{hex}}</h1>
+
+</div>
+
+<p>A custom service with a method that converts a given number into a hexadecimal number.</p>
+
+<script>
+var app = angular.module('myApp', []);
+
+app.service('hexafy', function() {
+    this.myFunc = function (x) {
+        return x.toString(16);
+}
+});
+app.controller('myCtrl', function($scope, hexafy) {
+  $scope.hex = hexafy.myFunc(255);
+});
+</script>
+
+</body>
+</html>
